@@ -97,7 +97,8 @@ public class EgovSpringSecurityLoginFilter implements Filter {
 
 					if (loginVO != null && loginVO.getId() != null && !loginVO.getId().equals("")) {
 						//세션 로그인
-						session.setAttribute("loginVO", loginVO);
+						LOGGER.info("로그인");
+						session.setAttribute("loginVO1", loginVO);
 
 						//로컬 인증결과 세션에 저장
 						session.setAttribute("isLocallyAuthenticated", "true");
@@ -133,7 +134,8 @@ public class EgovSpringSecurityLoginFilter implements Filter {
 
 			} else if (isRemotelyAuthenticated == null) {
 				if (requestURL.contains(loginProcessURL)) {
-
+					System.out.println("ㅇㅇㅇㅇ");
+					LOGGER.info("로그인");
 					String password = httpRequest.getParameter("password");
 					
 					// 보안점검 후속 조치(Password 검증)
@@ -194,7 +196,7 @@ public class EgovSpringSecurityLoginFilter implements Filter {
 						loginVO.setIp(request.getRemoteAddr());
 						if (loginVO != null && loginVO.getId() != null && !loginVO.getId().equals("")) {
 							//세션 로그인
-							session.setAttribute("loginVO", loginVO);
+							session.setAttribute("loginVO2", loginVO);
 
 							//로컬 인증결과 세션에 저장
 							session.setAttribute("isLocallyAuthenticated", "true");

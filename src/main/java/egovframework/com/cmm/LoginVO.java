@@ -52,6 +52,34 @@ public class LoginVO implements Serializable{
 	private String ip;
 	/** GPKI인증 DN */
 	private String dn;
+	
+	
+	private String address; //주소
+	private String dAddress; //상세주소
+	private String tellNum; //전화번호 
+	
+	
+	
+	
+	
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getdAddress() {
+		return dAddress;
+	}
+	public void setdAddress(String dAddress) {
+		this.dAddress = dAddress;
+	}
+	public String getTellNum() {
+		return tellNum;
+	}
+	public void setTellNum(String tellNum) {
+		this.tellNum = tellNum;
+	}
 	/**
 	 * id attribute 를 리턴한다.
 	 * @return String

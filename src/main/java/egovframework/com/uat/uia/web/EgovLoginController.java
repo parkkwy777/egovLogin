@@ -150,7 +150,7 @@ public class EgovLoginController {
 		if (resultVO != null && resultVO.getId() != null && !resultVO.getId().equals("")) {
 
 			// 3-1. 로그인 정보를 세션에 저장
-			request.getSession().setAttribute("loginVO", resultVO);
+			request.getSession().setAttribute("loginVO3", resultVO);
 
 			return "redirect:/uat/uia/actionMain.do";
 
@@ -313,7 +313,7 @@ public class EgovLoginController {
 
 		// 1. Security 연동
 		return "redirect:/j_spring_security_logout";*/
-
+		System.out.println("로그아웃");
 		request.getSession().setAttribute("loginVO", null);
 
 		//return "redirect:/egovDevIndex.jsp";

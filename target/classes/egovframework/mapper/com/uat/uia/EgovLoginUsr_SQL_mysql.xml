@@ -19,7 +19,10 @@
 		<result property="password" column="password"/>
 		<result property="userSe" column="userSe"/>
 		<result property="orgnztId" column="orgnztId"/>
-		<result property="uniqId" column="uniqId"/>		
+		<result property="uniqId" column="uniqId"/>	
+		<result property="address" column="address"	/>
+		<result property="dAddress" column="dAddress"/>
+		<result property="tellNum" column="tellNum"/>
 	</resultMap>
 	
 	<!-- 아이디 찾기를 위한 resultMap -->
@@ -84,7 +87,6 @@
 		</if>
 	</select>
 	
-	
 	<!-- 일반 로그인 -->
 	<select id="actionLogin" resultMap="login">
 		<!-- 일반회원 -->
@@ -98,6 +100,9 @@
 			     , 'GNR' AS userSe
 			     , '-' AS orgnztId
 			     , esntl_id AS uniqId
+			     , mbtlnum as tellNum
+			     , detail_adres as dAddress
+			     , adres as address
 			  FROM COMTNGNRLMBER
 			 WHERE mber_id = #{id}
 			   AND password = #{password}
@@ -115,6 +120,7 @@
 			     , 'ENT' AS userSe
 			     , '-' AS orgnztId
 			     , esntl_id AS uniqId
+			  	 ,detail_adres as dAddress
 			  FROM COMTNENTRPRSMBER
 			 WHERE ENTRPRS_MBER_ID = #{id}
 			   AND entrprs_mber_password = #{password}
@@ -132,6 +138,7 @@
 			     , 'USR' AS userSe
 			     , orgnzt_id AS orgnztId
 			     , esntl_id AS uniqId
+			     ,offm_telno AS tellNum
 			  FROM COMTNEMPLYRINFO
 			 WHERE emplyr_id = #{id}
 			   AND password = #{password}
